@@ -7,6 +7,13 @@ const priceSpan = document.querySelector('.price');
 
 let ticketPrice = +movieSelection.value;
 
+//update of tickets price when selecting another movie
+
+const ticketPriceUpdate = (e) => {
+  ticketPrice = e.target.value;
+  countSelectedSeats();
+};
+
 //add selected seats and ticket price to summary on bottom of page
 
 const countSelectedSeats = () => {
@@ -16,6 +23,8 @@ const countSelectedSeats = () => {
 
   countSpan.textContent = selectedSeatsNumber;
   priceSpan.textContent = selectedSeatsNumber * ticketPrice;
+
+  movieSelection.addEventListener('change', ticketPriceUpdate);
 };
 
 // AddEventListener to select not occupied seats
