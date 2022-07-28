@@ -7,6 +7,17 @@ const priceSpan = document.querySelector('.price');
 
 let ticketPrice = +movieSelection.value;
 
+//add selected seats and ticket price to summary on bottom of page
+
+const countSelectedSeats = () => {
+  const selectedSeatsNumber = document.querySelectorAll(
+    '.row .seat.selected'
+  ).length;
+
+  countSpan.textContent = selectedSeatsNumber;
+  priceSpan.textContent = selectedSeatsNumber * ticketPrice;
+};
+
 // AddEventListener to select not occupied seats
 
 const selectSeats = (e) => {
